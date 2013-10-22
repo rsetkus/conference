@@ -3,51 +3,57 @@ package lt.nfq.conference.domain;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Conference {
-    private Integer id;
-    private String name;
-    private Date startDate;
-    private Date endDate;
+public class Conference {	
+    private Integer conferenceId;
+    private String title;
+    private String teaser;
+    private Date conferenceFrom;
+    private Date conferenceTill;
 
-    public Integer getId() {
-        return id;
+    public Integer getConferenceId() {
+        return conferenceId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setConferenceId(Integer id) {
+        conferenceId = id;
     }
 
-    public String getName () {
-        return name;
+    public String getTitle () {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        title = name;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getConferenceFrom() {
+        return conferenceFrom;
     }
-    public String getStartDate(SimpleDateFormat simpleDateFormat) {
-        return simpleDateFormat.format(startDate);
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public String getConferenceFrom(SimpleDateFormat simpleDateFormat) {
+        return simpleDateFormat.format(conferenceFrom);
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public void setConferenceFrom(Date startDate) {
+        conferenceFrom = startDate;
     }
 
-    public String getEndDate(SimpleDateFormat simpleDateFormat) {
-        return simpleDateFormat.format(endDate);
+    public Date getConferenceTill() {
+        return conferenceTill;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public String getConferenceTill(SimpleDateFormat simpleDateFormat) {
+        return simpleDateFormat.format(conferenceTill);
     }
 
+    public void setConferenceTill(Date endDate) {
+        conferenceTill = endDate;
+    }
 
+	public String getTeaser() {
+		return teaser;
+	}
 
+	public void setTeaser(String teaser) {
+		this.teaser = teaser;
+	}
 }

@@ -1,0 +1,15 @@
+#if ($conferences.size() > 0)
+	#foreach($conference in $conferences)
+		<div id="conference">
+			<div id="conference-date">
+				<h1>$conference.getConferenceFrom($dateFormat)</h1>
+			</div>
+			<div id="conference-description">
+				<h4><a>$conference.getTitle()</a></h4>
+				<p>$conference.getTeaser()</p>
+			</div>
+		</div>
+	#end
+#else
+	<p class="lead">No conferences was found!</p>
+#end

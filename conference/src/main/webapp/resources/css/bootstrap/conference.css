@@ -1,0 +1,17 @@
+/*#conference {
+	border-top: 3px #115B77 solid; color: #666666;
+}*/
+
+#conference-date {
+	margin: 1%;
+	padding: 1%;
+	float: left;
+	width: 26%;
+}
+
+#conference-description {
+	margin: 1%;
+	padding: 1%;
+	float: left;
+	width: 66%;
+}

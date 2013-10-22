@@ -1,0 +1,55 @@
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="#">Conferences Portal</a>
+			<ul class="nav">
+				<li class="active"><a href="#">Conferences</a></li>
+				<li><a href="#">My Calander</a></li>
+				<li><a href="#">Speakers</a></li>
+			</ul>
+			
+			<a data-toggle="modal" href="#loginDialog" class="btn btn-primary pull-right"><i class="icon-white icon-user"></i> Sign in</a>
+		</div>
+	</div>	
+</div>
+
+<!-- Login modal dialog -->
+<div id="loginDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+	<div class="modal-header">
+		<a href="#" class="close" data-dismiss="modal">×</a>
+		<h3 class="text-center">Sign in...</h3>
+	</div>
+
+	<div class="modal-body">
+		<form class="form-horizontal">
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">Email</label>
+				<div class="controls">
+					<input class="xlarge" id="inputEmail" placeholder="Email" type="text">
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="inputPassword">Password</label>
+				<div class="controls">
+					<input class="xlarge" id="inputPassword" placeholder="Password" type="password">
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<label class="checkbox">
+						<input type="checkbox">Remember me
+					</label>
+					<button type="submit" class="btn btn-primary">Sign in</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="modal-footer">
+		<a href="register.html" class="btn pull-left" onclick="closeLoginDialog();">Register</a>
+				
+		<a href="#" class="btn" onclick="closeLoginDialog();">Cancel</a>				
+	</div>
+</div>

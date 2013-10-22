@@ -28,7 +28,7 @@ public class ConferenceService {
     }
 
     public void saveConference(Conference conference) {
-    	if (conference.getId() != null) {
+    	if (conference.getConferenceId() != null) {
     		conferenceMapper.updateConference(conference);
     	} else {
     		conferenceMapper.insertConference(conference);

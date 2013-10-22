@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Conferences portal</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/bootstrap-responsive.min.css">
+
+		<!-- Bootstrap Datepicker -->
+		<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/datepicker.css">
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/conference.css">
+	</head>
+	<body>
+		#parse("blocks/navigation.vm")
+	
+		<div class="container">
+			$screen_content
+		</div>
+	
+		#parse("blocks/footer.vm")
+		
+		<script type="text/javascript" src="/resources/js/bootstrap/jquery.min.js"></script>
+		<script type="text/javascript" src="/resources/js/bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/resources/js/bootstrap/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="/resources/js/bootstrap/conference.js"></script>
+	</body>
+</html>
