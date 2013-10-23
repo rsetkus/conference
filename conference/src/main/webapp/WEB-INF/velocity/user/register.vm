@@ -1,0 +1,52 @@
+<div class="content">
+	<div class="row">
+		<div class="span12">
+			<form action="/user/register" method="post">
+				<fieldset>
+					<legend>Create new user account</legend>
+					<div class="control-group">
+						<label class="control-label">Email</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="userEmail" name="userEmail" rel="popover" data-content="Enter your email address" data-original-title="Email address"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label">Name</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="name" name="name" rel="popover" data-content="Enter your first name." data-original-title="First Name" />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label">Last Name</label>
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="lname" name="lname" rel="popover" data-content="Enter your last name." data-original-title="Last Name" />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label">Password</label>
+						<div class="controls">
+							<input type="password" class="input-xlarge" id="password" name="password" rel="popover" data-content="Enter your password." data-original-title="Password" />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label">Confirm password</label>
+						<div class="controls">
+							<input type="password" class="input-xlarge" id="rpassword" name="rpassword" rel="popover" data-content="Please re-type your password" data-original-title="Confirm your password" />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label"></label>
+						<div class="controls">
+							<button type="submit" class="btn btn-success" >Create My Account</button>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>

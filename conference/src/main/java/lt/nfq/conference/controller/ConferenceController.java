@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,10 +45,16 @@ public class ConferenceController {
 		return "conference/list";
 	}
 	
-	@RequestMapping(value="/conference", method=RequestMethod.GET)
-	public String view(ModelMap model) {
+	@RequestMapping(value="/conference/{conferenceId}", method=RequestMethod.GET)
+	public String view(ModelMap model, @PathVariable("conferenceId") String conferenceId) {
+		//Do not know how to catch inner Spring Exceptions due to paramater casting
+		try {
+			int id = Integer.valueOf(conferenceId);
+			model.addAttribute("conference", conferenceService.getConference(id));
+		} catch(NumberFormatException e) {
+			
+		}
 		
-		model.addAttribute("conference", conferenceService.getConference(0));
 		return "conference/details";
 	}
 	

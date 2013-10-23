@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbox>
+	<tool>
+		<key>text</key>
+	  	<scope>request</scope>
+	  	<class>org.apache.velocity.tools.struts.MessageTool</class>
+	</tool>
+</toolbox>

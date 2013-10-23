@@ -9,6 +9,8 @@ public class Conference {
     private String teaser;
     private Date conferenceFrom;
     private Date conferenceTill;
+    private String address;
+    private String description;
 
     public Integer getConferenceId() {
         return conferenceId;
@@ -55,5 +57,21 @@ public class Conference {
 
 	public void setTeaser(String teaser) {
 		this.teaser = teaser;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

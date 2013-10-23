@@ -1,0 +1,17 @@
+<div class="hero-unit">
+	<a class="btn btn-info btn-large">Attend</a>
+</div>
+<div class="row">
+	<div class="span3">
+		<div id="map-canvas"></div>
+		<p>$conference.getAddress()</p>
+	</div>
+	<div class="span9">
+		<div id="conference-title">
+			<h3>$conference.getTitle()</h3>
+		</div>
+		<div id="conference-description">
+			<p>$conference.getDescription()</p>
+		</div>
+	</div>
+</div>
