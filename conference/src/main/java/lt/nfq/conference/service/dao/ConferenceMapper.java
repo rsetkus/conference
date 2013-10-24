@@ -24,12 +24,21 @@ public interface ConferenceMapper {
     public List<Conference> getConferencesByDates(@Param("start") Date start, @Param("end") Date end);
 
     @Options(flushCache=true)
-    @Update("UPDATE Conference set title = #{name}, conferenceFrom = #{startDate}, conferenceTill = #{endDate} WHERE conferenceId=#{id}")
+    @Update("UPDATE Conference SET"
+    		+ " conferenceTypeId = #{typeId}, title = #{name},"
+    		+ " conferenceFrom = #{startDate},"
+    		+ " conferenceTill = #{endDate},"
+    		+ " teaser = #{teaser},"
+    		+ " address = #{address},"
+    		+ " description = #{description},"
+    		+ " isPublished = #{isPublished}"
+    		+ " WHERE conferenceId=#{id}")
     public int updateConference(Conference conference);
 
     @Options(flushCache=true)
-    @Insert("INSERT INTO Conference (title, conferenceFrom, conferenceTill) VALUES (#{name}, #{startDate}, #{endDate})")
-    @SelectKey(statement="CALL IDENTITY()", keyProperty="id", before=false, resultType=int.class)
+    @Insert("INSERT INTO Conference (conferenceTypeId, title, conferenceFrom, conferenceTill, teaser, address, description, isPublished)"
+    		+ " VALUES (#{conferenceTypeId}, #{title}, #{conferenceFrom}, #{conferenceTill}, #{teaser}, #{address}, #{description}, #{isPublished})")
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=int.class)
     public int insertConference(Conference conference);
     
 }

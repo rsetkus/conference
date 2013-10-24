@@ -1,0 +1,70 @@
+<form class="form-horizontal" action="/conference/manage" method="post">
+	<input type="hidden" value="$!{conference.getConferenceId()}" name="conferenceId"/>
+	
+	<div class="control-group">
+		<label for="title" class="control-label">Title</label>
+		<div class="controls">
+			<input type="text" value="$!{conference.getTitle()}" name="title" class="input-block-level" id="title" placeholder="Conference title">
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<span class="control-label">Conference date</span>		
+		<div class="controls form-inline">
+			<label for="conferenceFrom"><strong>From</strong></label>
+			<input type="text" value="$!{conference.getConferenceFrom()}" name="conferenceFrom"  id="conferenceFrom" placeholder="Conference begins at">
+			<span class="add-on"><i class="icon-calendar"></i></span>
+			
+			<label for="conferenceTill"><strong>Till</strong></label>
+			<input type="text" value="$!{conference.getConferenceTill()}" name="conferenceTill"  id="conferenceTill" placeholder="Conference ends at">
+			<span class="add-on"><i class="icon-calendar"></i></span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label for="address" class="control-label">Address</label>
+		<div class="controls">
+			<input type="text" value="$!{conference.getAddress()}" class="input-block-level" name="address"  id="address" placeholder="Conference location" />
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label for="conferenceType" class="control-label">Conference type</label>
+		<div  class="controls">
+			<select name="conferenceTypeId" id="conferenceTypeId">
+				#if($conferenceTypes)
+					#foreach($type in $conferenceTypes)
+						<option value="${type.getConferenceTypeId()}">${type.getName()}</option>
+					#end
+				#end
+            </select>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label for="teaser" class="control-label">Teaser</label>
+		<div class="controls">
+			<textarea rows="3" name="teaser" class="input-block-level" id="teaser" placeholder="Short conference descprition (will be seen in conference list)">$!{conference.getTeaser()}</textarea>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label for="description" class="control-label">Description</label>
+		<div class="controls">
+			<textarea rows="10" name="description" class="input-block-level" id="description" placeholder="Conference descprition">$!{conference.getDescription()}</textarea>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<div class="controls">
+			<input type="checkbox" name="isPublished" id="isPublished" /> Published
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label"></label>
+		<div class="controls">
+			<button type="submit" class="btn" >Submit conference</button>
+		</div>
+	</div>
+</form>

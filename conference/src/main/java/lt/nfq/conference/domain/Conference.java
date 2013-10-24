@@ -5,12 +5,14 @@ import java.util.Date;
 
 public class Conference {	
     private Integer conferenceId;
+    private Integer conferenceTypeId;
     private String title;
     private String teaser;
     private Date conferenceFrom;
     private Date conferenceTill;
     private String address;
     private String description;
+    private Integer isPublished;
 
     public Integer getConferenceId() {
         return conferenceId;
@@ -73,5 +75,21 @@ public class Conference {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Integer getConferenceTypeId() {
+		return conferenceTypeId;
+	}
+
+	public void setConferenceTypeId(Integer conferenceTypeId) {
+		this.conferenceTypeId = conferenceTypeId;
+	}
+
+	public Integer getIsPublished() {
+		return isPublished;
+	}
+
+	public void setIsPublished(Integer isPublished) {
+		this.isPublished = isPublished;
 	}
 }
