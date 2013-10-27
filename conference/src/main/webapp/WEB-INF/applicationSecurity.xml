@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+  xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+		
+		<http auto-config="true">
+			<intercept-url pattern="/*" access="ROLE_ADMINISTRATOR, ROLE_MANAGER, ROLE_VIEWER, ROLE_GUEST"/>
+			<intercept-url pattern="/conference/edit/*" access="ROLE_MANAGER"/>
+			
+			<anonymous username="guest" granted-authority="ROLE_GUEST"/>
+			
+			<form-login login-page="/user/login"/>
+		</http>
+		
+		<authentication-manager>
+			<authentication-provider>
+				<password-encoder hash="md5"/>
+				<jdbc-user-service data-source-ref="dataSource"
+					users-by-username-query="
+						SELECT username, password, enabled
+						FROM User
+						WHERE username = ?"
+					
+					authorities-by-username-query="
+						SELECT username, Roles.role AS authorities
+						FROM User
+							INNER JOIN UsersRoles ON (User.userId = UsersRoles.userId)
+							INNER JOIN Roles ON(UsersRoles.roleId = Roles.roleId)
+						WHERE username = ?
+					"/>
+			</authentication-provider>
+		</authentication-manager>
+</beans:beans>

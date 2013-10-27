@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lt.nfq.conference.service.doa.ConferenceMapper">
+	<resultMap type="Conference" id="resultConference">
+		<id property="conferenceId" column="conferenceId" />
+		<result property="conferenceFrom" column="conferenceFrom"/>
+		<result property="conferenceTill" column="conferenceTill"/>
+		<result property="title" column="title"/>
+		<result property="teaser" column="teaser"/>
+		<result property="address" column="address"/>
+		<result property="description" column="description"/>
+		<result property="isPublished" column="isPublished"/>
+		<association property="type" column="conferenceTypeId" javaType="ConferenceType">
+			<id property="conferenceTypeId" column="conferenceTypeId"/>
+			<result property="name" column="typeName"/>
+		</association>
+		<collection property="attendees" column="conferenceId" javaType="ArrayList" ofType="User">
+			<id property="userId" column="userId"/>
+			<result property="username" column="username"/>
+			<result property="name" column="uName"/>
+			<result property="surname" column="surname"/>
+		</collection>
+	</resultMap>
+	
+	<select id="selectConference" resultMap="resultConference">
+		SELECT Conference.conferenceId AS conferenceId, conferenceFrom, conferenceTill, title,
+			teaser, address, description, isPublished, ConferenceType.conferenceTypeId AS conferenceTypeId,
+			ConferenceType.name AS typeName, userId, username,
+			User.name AS uName, surname	
+		FROM Conference
+		INNER JOIN ConferenceType ON (Conference.conferenceTypeId = ConferenceType.conferenceTypeId)
+		INNER JOIN Attendee	ON (Conference.conferenceId = Attendee.conferenceId)
+		INNER JOIN User	ON (Attendee.userId = User.userId)
+	</select>
+</mapper>

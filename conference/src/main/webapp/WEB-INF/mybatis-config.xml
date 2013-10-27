@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="Conference" type="lt.nfq.conference.domain.Conference" />
+		<typeAlias alias="User" type="lt.nfq.conference.domain.User"/>
+		<typeAlias alias="ConferenceType" type="lt.nfq.conference.domain.ConferenceType"/>
+	</typeAliases>
+	
+	<mappers>
+<!-- 		<mapper resource="lt/nfq/conference/service/dao/Conference.xml" /> -->
+		<mapper url="file:///Users/akademija/workspace/conference/conference/src/main/java/lt/nfq/conference/service/dao/Conference.xml" />
+	</mappers>
+
+</configuration>

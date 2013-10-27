@@ -9,6 +9,8 @@
 				<p>$conference.getTeaser()</p>
 				#if($conference.getAttendees())
 					<small><i><b>$conference.getAttendees().size()</b> attendees</small>
+				#else
+					<small><i>No attendees yet</small>
 				#end
 			</div>
 		</div>
