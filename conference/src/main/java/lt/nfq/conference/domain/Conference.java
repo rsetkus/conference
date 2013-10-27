@@ -2,10 +2,11 @@ package lt.nfq.conference.domain;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Conference {	
     private Integer conferenceId;
-    private Integer conferenceTypeId;
+    private ConferenceType type;
     private String title;
     private String teaser;
     private Date conferenceFrom;
@@ -13,6 +14,7 @@ public class Conference {
     private String address;
     private String description;
     private Integer isPublished;
+    private List<User> attendees;
 
     public Integer getConferenceId() {
         return conferenceId;
@@ -76,20 +78,28 @@ public class Conference {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public Integer getConferenceTypeId() {
-		return conferenceTypeId;
-	}
-
-	public void setConferenceTypeId(Integer conferenceTypeId) {
-		this.conferenceTypeId = conferenceTypeId;
-	}
-
+	
 	public Integer getIsPublished() {
 		return isPublished;
 	}
 
 	public void setIsPublished(Integer isPublished) {
 		this.isPublished = isPublished;
+	}
+
+	public List<User> getAttendees() {
+		return attendees;
+	}
+
+	public void setAttendees(List<User> attendees) {
+		this.attendees = attendees;
+	}
+
+	public ConferenceType getType() {
+		return type;
+	}
+
+	public void setType(ConferenceType type) {
+		this.type = type;
 	}
 }

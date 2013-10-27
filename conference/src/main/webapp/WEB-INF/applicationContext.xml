@@ -23,11 +23,6 @@
         <property name="password" value="${jdbc.password}" />
     </bean>
 
-    <!--<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL" enabled="${jdbc.initialize}">
-        <jdbc:script location="classpath:sql/schema.sql" />
-        <jdbc:script location="classpath:sql/sample-data.sql" />
-    </jdbc:initialize-database>-->
-
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
     </bean>

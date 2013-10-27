@@ -44,4 +44,9 @@ public class UserController {
 	public String edit(@PathVariable("user") String user) {
 		return "";
 	}
+	
+	@RequestMapping(value="login", method=RequestMethod.GET)
+	public String login() {
+		return "user/login";
+	}
 }

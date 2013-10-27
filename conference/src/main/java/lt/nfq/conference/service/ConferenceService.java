@@ -5,6 +5,7 @@ import java.util.List;
 
 import lt.nfq.conference.domain.Conference;
 import lt.nfq.conference.domain.ConferenceType;
+import lt.nfq.conference.domain.User;
 import lt.nfq.conference.service.dao.ConferenceMapper;
 import lt.nfq.conference.service.dao.ConferenceTypeMapper;
 

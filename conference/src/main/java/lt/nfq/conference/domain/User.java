@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class User {
 	private Integer userId;
-	private String email;
+	private String username;
 	private String name;
 	private String surname;
 	private String password;
@@ -19,12 +19,12 @@ public class User {
 		this.userId = userId;
 	}
 	
-	public String getEmail() {
-		return email;
+	public String getUsername() {
+		return username;
 	}
 	
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String uname) {
+		this.username = uname;
 	}
 
 	public String getName() {
@@ -47,6 +47,11 @@ public class User {
 		return password;
 	}
 
+	/**
+	 * Store password as MD5 hash
+	 * 
+	 * @param password
+	 */
 	public void setPassword(String password) {
 		try {
 			// Creating md5 hashing object

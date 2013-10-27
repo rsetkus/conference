@@ -13,7 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/datepicker.css">
 
 		<!-- Custom CSS -->
-		<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/conference.css">
+		<link rel="stylesheet" type="text/css" href="/resources/css/conference.css">
 	</head>
 	<body>
 		#parse("blocks/navigation.vm")

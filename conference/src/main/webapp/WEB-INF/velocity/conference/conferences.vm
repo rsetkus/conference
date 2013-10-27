@@ -7,6 +7,9 @@
 			<div id="conference-description">
 				<h4><a href="conference/$conference.getConferenceId()">$conference.getTitle()</a></h4>
 				<p>$conference.getTeaser()</p>
+				#if($conference.getAttendees())
+					<small><i><b>$conference.getAttendees().size()</b> attendees</small>
+				#end
 			</div>
 		</div>
 	#end

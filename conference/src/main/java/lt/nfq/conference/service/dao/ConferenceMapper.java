@@ -4,10 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 import lt.nfq.conference.domain.Conference;
+import lt.nfq.conference.domain.User;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
@@ -39,6 +43,5 @@ public interface ConferenceMapper {
     @Insert("INSERT INTO Conference (conferenceTypeId, title, conferenceFrom, conferenceTill, teaser, address, description, isPublished)"
     		+ " VALUES (#{conferenceTypeId}, #{title}, #{conferenceFrom}, #{conferenceTill}, #{teaser}, #{address}, #{description}, #{isPublished})")
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=int.class)
-    public int insertConference(Conference conference);
-    
+    public int insertConference(Conference conference);    
 }

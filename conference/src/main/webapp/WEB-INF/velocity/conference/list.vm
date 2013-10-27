@@ -1,5 +1,5 @@
 <div class="hero-unit">
-	<h1>All World Conferences in one place!</h1>
+	<h1>#springMessage('title')</h1>
 </div>
 	
 <form class="form-inline" action="" method="post">

@@ -19,6 +19,12 @@
 
     <mvc:annotation-driven />
     
+    <bean id="messageSource"
+    		class="org.springframework.context.support.ResourceBundleMessageSource">
+    		<property name="basename" value="locale/messages" />
+    		<property name="defaultEncoding" value="UTF-8" />
+    </bean>
+    
     <mvc:interceptors>
 	    <bean id="webContentInterceptor" 
 	          class="org.springframework.web.servlet.mvc.WebContentInterceptor">
@@ -27,18 +33,34 @@
 	        <property name="useCacheControlHeader" value="true"/>
 	        <property name="useCacheControlNoStore" value="true"/>
 	    </bean>
+	    
+	    <!--  <bean id="localeChangeInterceptor"
+	    	class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+	    	<property name="paramName" value="lang" />
+	    </bean>-->
 	</mvc:interceptors>
 
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
         <property name="resourceLoaderPath" value="WEB-INF/velocity/" />
         <property name="configLocation" value="classpath:velocity.properties"/>
     </bean>
+    
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath" value="/WEB-INF/velocity/" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="resource.loader">file,springMacro</prop>
+				<prop key="springMacro.resource.loader.class">org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader</prop>
+                <prop key="velocimacro.library">org/springframework/web/servlet/view/velocity/spring.vm</prop>
+			</props>
+		</property>
+	</bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
         <property name="prefix" value="/" />
         <property name="layoutUrl" value="layout.vm"/>
         <property name="suffix" value=".vm" />
-        <property name="exposeSpringMacroHelpers" value="true" />
         <property name="contentType" value="text/html; charset=UTF-8" />
     </bean>
+   
 </beans>
