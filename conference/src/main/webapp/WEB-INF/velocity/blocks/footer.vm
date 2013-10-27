@@ -1,5 +1,5 @@
 <div class="container">
 	<div class="footer">
-		<p>Robertas Šetkus &copy; 2013</p>
+		<p>#springMessage('label.footer')</p>
 	</div>
 </div>

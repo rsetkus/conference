@@ -5,8 +5,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * POJO Conference class
+ * 
+ * @author akademija
+ */
 public class Conference {	
     private Integer conferenceId;
+    private Integer conferenceTypeId;
     private ConferenceType type;
     private String title;
     private String teaser;
@@ -102,5 +108,13 @@ public class Conference {
 
 	public void setType(ConferenceType type) {
 		this.type = type;
+	}
+
+	public Integer getConferenceTypeId() {
+		return conferenceTypeId;
+	}
+
+	public void setConferenceTypeId(Integer conferenceTypeId) {
+		this.conferenceTypeId = conferenceTypeId;
 	}
 }

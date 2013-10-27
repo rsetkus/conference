@@ -35,6 +35,12 @@ public class ConferenceController {
 		return new SimpleDateFormat("yyyy-MM-dd");
 	}
 	
+	/**
+	 * Front conference portal request
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String list(ModelMap model) {
 		SimpleDateFormat dFormat = getDateFormat();
@@ -84,6 +90,25 @@ public class ConferenceController {
 	}
 	
 	/**
+	 * Delete conference request handler
+	 * 
+	 * @param conferenceId
+	 * @return
+	 */
+	@RequestMapping(value="/conference/delete/{conferenceId}", method=RequestMethod.POST)
+	public String delete(@PathVariable("conferenceId") String conferenceId) {
+		try {
+			int id = Integer.valueOf(conferenceId);
+			conferenceService.deleteConference(id);
+			
+		} catch(NumberFormatException e) {
+			
+		}
+		
+		return "redirect:/";
+	}
+	
+	/**
 	 * Update existing conference
 	 * 
 	 * @param conference
@@ -94,6 +119,8 @@ public class ConferenceController {
 		try {
 			int id = Integer.valueOf(conferenceId);
 			model.addAttribute("conference", conferenceService.getConference(id));
+			model.addAttribute("conferenceTypes", conferenceService.getConferenceTypes());
+			model.addAttribute("dateFormat", getDateFormat());
 		} catch(NumberFormatException e) {
 			
 		}
@@ -142,7 +169,7 @@ public class ConferenceController {
 	}
 	
 	@InitBinder
-	public void iniBinder(WebDataBinder binder) {
+	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat dFormat = getDateFormat();
 		dFormat.setLenient(false);
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dFormat, false));

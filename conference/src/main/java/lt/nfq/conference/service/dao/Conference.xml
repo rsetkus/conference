@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="lt.nfq.conference.service.doa.ConferenceMapper">
+<mapper namespace="ConferenceMapper">
 	<resultMap type="Conference" id="resultConference">
 		<id property="conferenceId" column="conferenceId" />
 		<result property="conferenceFrom" column="conferenceFrom"/>
@@ -32,6 +32,6 @@
 		FROM Conference
 		INNER JOIN ConferenceType ON (Conference.conferenceTypeId = ConferenceType.conferenceTypeId)
 		INNER JOIN Attendee	ON (Conference.conferenceId = Attendee.conferenceId)
-		INNER JOIN User	ON (Attendee.userId = User.userId)
+		INNER JOIN User	ON (Attendee.userId = User.userId) aaaa
 	</select>
 </mapper>

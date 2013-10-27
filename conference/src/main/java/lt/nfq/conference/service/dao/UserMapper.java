@@ -14,7 +14,7 @@ public interface UserMapper {
 	public User getUser(@Param("id") int id);
 	
 	@Options(flushCache=true)
-	@Insert("INSERT INTO User (email, password, name, surname) VALUES (#{email}, #{password}, #{name}, #{surname})")
+	@Insert("INSERT INTO User (username, password, name, surname) VALUES (#{username}, #{password}, #{name}, #{surname})")
 	@SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="userId", before=false, resultType=int.class)
 	public int insertUser(User user);
 }

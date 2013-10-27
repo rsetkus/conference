@@ -1,0 +1,11 @@
+<div class="row-fluid">
+	<div class="span4">
+		<img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg" alt="" class="img-rounded img-responsive" />
+    </div>
+    <div class="span8">
+		<blockquote>
+			<p>$!{user.getName()} $!{user.getSurname()}</p>
+		</blockquote>
+			<p> <i class="icon icon-envelope"></i> $!{user.getUserName()}</p>
+	</div>
+</div>

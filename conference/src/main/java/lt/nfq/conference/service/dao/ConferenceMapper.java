@@ -6,6 +6,7 @@ import java.util.List;
 import lt.nfq.conference.domain.Conference;
 import lt.nfq.conference.domain.User;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Options;
@@ -29,19 +30,23 @@ public interface ConferenceMapper {
 
     @Options(flushCache=true)
     @Update("UPDATE Conference SET"
-    		+ " conferenceTypeId = #{typeId}, title = #{name},"
-    		+ " conferenceFrom = #{startDate},"
-    		+ " conferenceTill = #{endDate},"
+    		+ " conferenceTypeId = #{conferenceTypeId}, title = #{title},"
+    		+ " conferenceFrom = #{conferenceFrom},"
+    		+ " conferenceTill = #{conferenceTill},"
     		+ " teaser = #{teaser},"
     		+ " address = #{address},"
     		+ " description = #{description},"
     		+ " isPublished = #{isPublished}"
-    		+ " WHERE conferenceId=#{id}")
+    		+ " WHERE conferenceId=#{conferenceId}")
     public int updateConference(Conference conference);
 
     @Options(flushCache=true)
     @Insert("INSERT INTO Conference (conferenceTypeId, title, conferenceFrom, conferenceTill, teaser, address, description, isPublished)"
     		+ " VALUES (#{conferenceTypeId}, #{title}, #{conferenceFrom}, #{conferenceTill}, #{teaser}, #{address}, #{description}, #{isPublished})")
-    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=int.class)
-    public int insertConference(Conference conference);    
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="conferenceId", before=false, resultType=int.class)
+    public int insertConference(Conference conference);
+    
+    @Options(flushCache=true)
+    @Delete("DELETE FROM Conference WHERE conferenceId = #{id}")
+    public int deleteConference(@Param("id") int id);
 }

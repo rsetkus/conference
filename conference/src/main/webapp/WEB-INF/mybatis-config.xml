@@ -10,6 +10,7 @@
 	</typeAliases>
 	
 	<mappers>
+<!-- 	Rises IOExeption. Can't find file in classpath -->
 <!-- 		<mapper resource="lt/nfq/conference/service/dao/Conference.xml" /> -->
 		<mapper url="file:///Users/akademija/workspace/conference/conference/src/main/java/lt/nfq/conference/service/dao/Conference.xml" />
 	</mappers>

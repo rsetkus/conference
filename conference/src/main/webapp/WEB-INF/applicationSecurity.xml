@@ -9,7 +9,16 @@
 		
 		<http auto-config="true">
 			<intercept-url pattern="/*" access="ROLE_ADMINISTRATOR, ROLE_MANAGER, ROLE_VIEWER, ROLE_GUEST"/>
-			<intercept-url pattern="/conference/edit/*" access="ROLE_MANAGER"/>
+			
+			<intercept-url pattern="/conference/edit/*" access="ROLE_MANAGER, ROLE_ADMINISTRATOR"/>
+			<intercept-url pattern="/conference/create/*" access="ROLE_MANAGER, ROLE_ADMINISTRATOR"/>
+			<intercept-url pattern="/conference/delete/*" access="ROLE_MANAGER, ROLE_ADMINISTRATOR"/>
+			
+			<intercept-url pattern="/user/edit*" access="ROLE_MANAGER, ROLE_ADMINISTRATOR, ROLE_VIEWER"/>
+			<intercept-url pattern="/user/delete*" access="ROLE_MANAGER, ROLE_ADMINISTRATOR, ROLE_VIEWER"/>
+			<intercept-url pattern="/user/login*" access="ROLE_MANAGER, ROLE_ADMINISTRATOR, ROLE_VIEWER, ROLE_GUEST"/>
+			
+			<intercept-url pattern="/admin*" access="ROLE_ADMINISTRATOR"/>
 			
 			<anonymous username="guest" granted-authority="ROLE_GUEST"/>
 			

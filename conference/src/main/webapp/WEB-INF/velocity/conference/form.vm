@@ -12,11 +12,11 @@
 		<span class="control-label">Conference date</span>		
 		<div class="controls form-inline">
 			<label for="conferenceFrom"><strong>From</strong></label>
-			<input type="text" value="$!{conference.getConferenceFrom()}" name="conferenceFrom"  id="conferenceFrom" placeholder="Conference begins at">
+			<input type="text" value="$!{conference.getConferenceFrom($dateFormat)}" name="conferenceFrom"  id="conferenceFrom" placeholder="Conference begins at">
 			<span class="add-on"><i class="icon-calendar"></i></span>
 			
 			<label for="conferenceTill"><strong>Till</strong></label>
-			<input type="text" value="$!{conference.getConferenceTill()}" name="conferenceTill"  id="conferenceTill" placeholder="Conference ends at">
+			<input type="text" value="$!{conference.getConferenceTill($dateFormat)}" name="conferenceTill"  id="conferenceTill" placeholder="Conference ends at">
 			<span class="add-on"><i class="icon-calendar"></i></span>
 		</div>
 	</div>

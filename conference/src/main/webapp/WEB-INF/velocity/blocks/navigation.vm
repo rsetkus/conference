@@ -1,11 +1,11 @@
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="container">
-			<a class="brand" href="#">Conferences Portal</a>
+			<a class="brand" href="/">Conferences Portal</a>
 			<ul class="nav">
-				<li class="active"><a href="#">Conferences</a></li>
-				<li><a href="#">My Calander</a></li>
-				<li><a href="#">Speakers</a></li>
+				<li class="active"><a href="/">Conferences</a></li>
+<!-- 				<li><a href="#">My Calander</a></li> -->
+<!-- 				<li><a href="#">Speakers</a></li> -->
 			</ul>
 			
 			<a data-toggle="modal" href="#loginDialog" class="btn btn-primary pull-right"><i class="icon-white icon-user"></i> Sign in</a>
@@ -17,39 +17,39 @@
 <div id="loginDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
 	<div class="modal-header">
 		<a href="#" class="close" data-dismiss="modal">×</a>
-		<h3 class="text-center">Sign in...</h3>
+		<h3 class="text-center">#springMessage('label.signin')</h3>
 	</div>
 
 	<div class="modal-body">
-		<form class="form-horizontal">
+		<form class="form-horizontal" action="/j_spring_security_check" method="post">
 			<div class="control-group">
-				<label class="control-label" for="inputEmail">Email</label>
+				<label class="control-label" for="inputEmail">#springMessage('label.email')</label>
 				<div class="controls">
-					<input class="xlarge" id="inputEmail" placeholder="Email" type="text">
+					<input class="xlarge" id="inputEmail" name="j_username" placeholder="Email" type="text">
 				</div>
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="inputPassword">Password</label>
+				<label class="control-label" for="inputPassword">#springMessage('label.password')</label>
 				<div class="controls">
-					<input class="xlarge" id="inputPassword" placeholder="Password" type="password">
+					<input class="xlarge" id="inputPassword" name="j_password" placeholder="Password" type="password">
 				</div>
 			</div>
 
 			<div class="control-group">
 				<div class="controls">
 					<label class="checkbox">
-						<input type="checkbox">Remember me
+						<input type="checkbox">#springMessage('label.rememberme')
 					</label>
-					<button type="submit" class="btn btn-primary">Sign in</button>
+					<button type="submit" class="btn btn-primary">#springMessage('button.signin')</button>
 				</div>
 			</div>
 		</form>
 	</div>
 
 	<div class="modal-footer">
-		<a href="/user/register" class="btn pull-left">Register</a>
+		<a href="/user/register" class="btn pull-left">#springMessage('button.register')</a>
 				
-		<a href="#" class="btn" onclick="closeLoginDialog();">Cancel</a>				
+		<a href="#" class="btn" onclick="closeLoginDialog();">#springMessage('button.cancel')</a>				
 	</div>
 </div>

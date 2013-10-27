@@ -79,4 +79,14 @@ public class ConferenceService {
     	
     	return result;
     }
+    
+    /**
+     * Delete conference
+     * 
+     * @param conferenceId
+     * @return
+     */
+    public int deleteConference(Integer conferenceId) {
+    	return conferenceMapper.deleteConference(conferenceId);
+    }
 }
