@@ -14,11 +14,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class ConferenceService {
 	
-    @Autowired
+	@Autowired
     private ConferenceMapper conferenceMapper;
     
     @Autowired
     private ConferenceTypeMapper conferenceTypeMapper;
+    
+    public List<Conference> getAllConferences() {    	
+    	return null;
+    }
 
     /**
      * Get conferences by date interval
@@ -28,7 +32,7 @@ public class ConferenceService {
      * @return List<Conference>
      */
     public List<Conference> getConferencesByDates(Date start, Date end) {
-        return conferenceMapper.getConferencesByDates(start, end);
+        return conferenceMapper.getAllConferences();
     }
     
     /**
@@ -72,7 +76,8 @@ public class ConferenceService {
     public int saveConference(Conference conference) {
     	int result = 0;
     	if (conference.getConferenceId() != null) {
-    		result = conferenceMapper.updateConference(conference);
+    		conferenceMapper.updateConference(conference);
+    		result = conference.getConferenceId();
     	} else {
     		result = conferenceMapper.insertConference(conference);
     	}

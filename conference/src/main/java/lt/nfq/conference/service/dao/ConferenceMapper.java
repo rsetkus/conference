@@ -4,20 +4,18 @@ import java.util.Date;
 import java.util.List;
 
 import lt.nfq.conference.domain.Conference;
-import lt.nfq.conference.domain.User;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 public interface ConferenceMapper {
+	
+	public List<Conference> getAllConferences();
 
     @Select("SELECT * FROM Conference WHERE conferenceId=#{id}")
     public Conference getConference(@Param("id") int id);
