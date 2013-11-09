@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lt.nfq.conference.service.dao.UserMapper">
+	<resultMap type="User" id="resultUser">
+		<id property="userId" column="userId"/>
+		<result property="username" column="username"/>
+		<result property="name" column="name" />
+		<result property="surname" column="surname" />
+		<result property="password" column="password" />
+		<result property="enabled" column="enabled" />
+		
+		<!-- User Roles -->
+		<collection property="roles" column="userId" javaType="ArrayList" ofType="Role">
+			<id property="roleId" column="roleId" />
+			<result property="role" column="role" />
+		</collection>
+	</resultMap>
+	
+	<select id="getUserByUsername" parameterType="string" resultMap="resultUser" >
+		SELECT User.userId AS userId, username, name, surname, password, enabled, Roles.roleId AS roleId, role
+		FROM User
+			LEFT JOIN UsersRoles ON(UsersRoles.userId = User.userId)
+			LEFT JOIN Roles ON(UsersRoles.roleId = Roles.roleId)
+		WHERE User.username = #{username}
+	</select>
+</mapper>

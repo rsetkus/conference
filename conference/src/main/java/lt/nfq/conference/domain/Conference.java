@@ -21,7 +21,7 @@ public class Conference {
     private String address;
     private String description;
     private Integer isPublished;
-    private List<User> attendees;
+    private List<ConferenceUser> attendees;
 
     public Integer getConferenceId() {
         return conferenceId;
@@ -94,11 +94,11 @@ public class Conference {
 		this.isPublished = isPublished;
 	}
 
-	public List<User> getAttendees() {
+	public List<ConferenceUser> getAttendees() {
 		return attendees;
 	}
 
-	public void setAttendees(List<User> attendees) {
+	public void setAttendees(List<ConferenceUser> attendees) {
 		this.attendees = attendees;
 	}
 

@@ -6,9 +6,12 @@
 				<li class="active"><a href="/">Conferences</a></li>
 <!-- 				<li><a href="#">My Calander</a></li> -->
 <!-- 				<li><a href="#">Speakers</a></li> -->
-			</ul>
-			
-			<a data-toggle="modal" href="#loginDialog" class="btn btn-primary pull-right"><i class="icon-white icon-user"></i> Sign in</a>
+			</ul>			
+			#if($user.allGranted("ROLE_ADMINISTRATOR"))
+				<div class="pull-right">Welcome back, <a href="/user/$!{user.getUserId()}">$!{user.getPrincipal()}</a></div>
+			#else
+				<a data-toggle="modal" href="#loginDialog" class="btn btn-primary pull-right"><i class="icon-white icon-user"></i> Sign in</a>
+			#end
 		</div>
 	</div>	
 </div>

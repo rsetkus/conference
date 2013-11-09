@@ -57,6 +57,15 @@
         <property name="layoutUrl" value="layout.vm"/>
         <property name="suffix" value=".vm" />
         <property name="contentType" value="text/html; charset=UTF-8" />
+        
+        <property name="attributesMap">
+        	<map>
+        		<entry key="user">
+        			<ref bean="velocityUserDetails"/>
+        		</entry>
+        	</map>
+        </property>
     </bean>
    
+   <bean id="velocityUserDetails" class="lt.nfq.utils.VelocityUserDetails"/>
 </beans>

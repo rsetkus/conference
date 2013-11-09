@@ -3,7 +3,7 @@ package lt.nfq.conference.controller;
 import java.security.Principal;
 import java.util.HashMap;
 
-import lt.nfq.conference.domain.User;
+import lt.nfq.conference.domain.ConferenceUser;
 import lt.nfq.conference.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class UserController {
 	 */
 	@RequestMapping(value="register", method=RequestMethod.GET)
 	public String register(ModelMap model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("user", new ConferenceUser());
 		return "user/register";
 	}
 	
@@ -42,7 +42,7 @@ public class UserController {
 	 */
 	@RequestMapping(value="create", method=RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String, String> create(@ModelAttribute("user") User user) {
+	public HashMap<String, String> create(@ModelAttribute("user") ConferenceUser user) {
 		HashMap<String, String> response = new HashMap<String, String>();
 		if(userService.createUser(user)) {
 			response.put("success", "saved");
@@ -66,7 +66,7 @@ public class UserController {
 			model.addAttribute("user", user);
 		} catch (ClassCastException e) {
 			// dump user
-			model.addAttribute("user", new User());
+			model.addAttribute("user", new ConferenceUser());
 		}
 		
 		return "user/user";

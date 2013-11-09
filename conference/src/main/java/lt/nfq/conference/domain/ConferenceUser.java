@@ -3,13 +3,17 @@ package lt.nfq.conference.domain;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
-public class User {
+public class ConferenceUser {
+	
 	private Integer userId;
 	private String username;
 	private String name;
 	private String surname;
 	private String password;
+	private Integer enabled;
+	private List<ConferenceRole> roles;
 	
 	public Integer getUserId() {
 		return userId;
@@ -47,30 +51,23 @@ public class User {
 		return password;
 	}
 
-	/**
-	 * Store password as MD5 hash
-	 * 
-	 * @param password
-	 */
 	public void setPassword(String password) {
-		try {
-			// Creating md5 hashing object
-			MessageDigest md5 = MessageDigest.getInstance("MD5");
-			
-			byte[] byteData = md5.digest(password.getBytes("UTF-8"));
-			StringBuffer buffer = new StringBuffer(byteData.length * 2);
-			
-			for(byte b : byteData) {
-				buffer.append(String.format("%02x", b & 0xff));
-			}
-			
-			this.password = buffer.toString();
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		this.password = password;
+	}
+
+	public List<ConferenceRole> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<ConferenceRole> roles) {
+		this.roles = roles;
+	}
+
+	public Integer getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Integer enabled) {
+		this.enabled = enabled;
 	}
 }

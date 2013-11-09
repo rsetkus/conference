@@ -25,22 +25,24 @@
 			<form-login login-page="/user/login"/>
 		</http>
 		
+		<beans:bean id="conferenceAuth" class="lt.nfq.security.ConferenceAuthenticationProvider"/>
+		
 		<authentication-manager>
-			<authentication-provider>
-				<password-encoder hash="md5"/>
-				<jdbc-user-service data-source-ref="dataSource"
-					users-by-username-query="
-						SELECT username, password, enabled
-						FROM User
-						WHERE username = ?"
+			<authentication-provider ref="conferenceAuth">
+<!-- 				<password-encoder hash="md5"/> -->
+<!-- 				<jdbc-user-service data-source-ref="dataSource" -->
+<!-- 					users-by-username-query=" -->
+<!-- 						SELECT username, password, enabled -->
+<!-- 						FROM User -->
+<!-- 						WHERE username = ?" -->
 					
-					authorities-by-username-query="
-						SELECT username, Roles.role AS authorities
-						FROM User
-							INNER JOIN UsersRoles ON (User.userId = UsersRoles.userId)
-							INNER JOIN Roles ON(UsersRoles.roleId = Roles.roleId)
-						WHERE username = ?
-					"/>
+<!-- 					authorities-by-username-query=" -->
+<!-- 						SELECT username, Roles.role AS authorities -->
+<!-- 						FROM User -->
+<!-- 							INNER JOIN UsersRoles ON (User.userId = UsersRoles.userId) -->
+<!-- 							INNER JOIN Roles ON(UsersRoles.roleId = Roles.roleId) -->
+<!-- 						WHERE username = ? -->
+<!-- 					"/> -->
 			</authentication-provider>
 		</authentication-manager>
 </beans:beans>

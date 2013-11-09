@@ -25,7 +25,7 @@
 		</collection>
 	</resultMap>
 	
-	<select id="getAllConferences" resultMap="resultConference">
+	<select id="getAllConferences" resultMap="resultConference" resultType="arraylist">
 		SELECT Conference.conferenceId AS conferenceId, conferenceFrom, conferenceTill, title,
 			teaser, address, description, isPublished, ConferenceType.conferenceTypeId AS conferenceTypeId,
 			ConferenceType.name AS typeName, User.userId, username,

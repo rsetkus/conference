@@ -5,11 +5,13 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="Conference" type="lt.nfq.conference.domain.Conference" />
-		<typeAlias alias="User" type="lt.nfq.conference.domain.User"/>
+		<typeAlias alias="User" type="lt.nfq.conference.domain.ConferenceUser"/>
 		<typeAlias alias="ConferenceType" type="lt.nfq.conference.domain.ConferenceType"/>
+		<typeAlias alias="Role" type="lt.nfq.conference.domain.ConferenceRole"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="Conference.xml"/>
+		<mapper resource="User.xml"/>
 	</mappers>
 </configuration>
